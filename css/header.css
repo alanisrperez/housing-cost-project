@@ -1,0 +1,82 @@
+.mySlider {
+    width:250px;
+    height:20px;
+    margin-top:0px;
+    cursor: pointer;
+    display:flex;
+    justify-content: center;
+    transition: opacity .3s, width .3s;
+    margin-left: auto;
+    margin-right: auto;
+  }
+.mySlider:hover{
+    width:300px;
+    letter-spacing:12px
+}
+.header{
+  height:200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position:fixed;
+  top:0px;
+  left:0px;
+  right:0px;
+  z-index: 1;
+  background-color:rgba(246, 246, 246,.7);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(152, 152, 152);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .1);
+  backdrop-filter: blur(10px);
+  
+}
+.header-title{
+  font-size: 30px;
+  margin-top: 0px;
+  display:flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-weight: 100;
+  letter-spacing: 8px;
+  color: rgb(54, 54, 54);
+  transition: letter-spacing .3s;
+}
+.header-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:400px
+}
+.header-left{
+  width:400px;
+  margin-left: 30px;
+}
+.dropdown{
+  display: flex;
+  flex-direction: column;
+}
+.dropdown button{
+  background-color: rgb(110, 110, 110);
+  border:none;
+  height:50px;
+  width: 100px;
+  color:rgb(252, 252, 252);
+  cursor:pointer;
+  transition: background-color .3s, color .3s;
+}
+.dropdown button:hover{
+  background-color: rgb(249, 249, 249);
+  color: rgb(170, 170, 170);
+}
+.dropdown a{
+  color:rgb(114, 114, 114);
+  display:block;
+  text-decoration: none;
+  padding:5px 5px;
+  
+}
+.header-right{
+  width:400px;
+  margin-right:30px;
+}

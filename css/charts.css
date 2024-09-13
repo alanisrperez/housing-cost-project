@@ -1,0 +1,23 @@
+p {
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+}
+.charts{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: gray;
+}
+.bar-chart{
+    height:50%;
+    background-color: pink;
+}
+.scatter-plot{
+    height:50%;
+    background-color: lightblue;
+}
