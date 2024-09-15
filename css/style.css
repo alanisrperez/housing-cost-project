@@ -1,13 +1,17 @@
-body {
-    padding: 20px;
-    margin: 20px;
-    box-sizing: border-box;
-  }
-  
   #map,
   body,
   html {
-    width:80%;
+    width:700px;
     height: 650px;
+    z-index: 1;
+    padding-left:30px;
   }
-  
+  .map-deco {
+    border: 5px solid rgb(222, 222, 222);
+    box-sizing: border-box; 
+    filter:grayscale(30%);
+    transition: filter .3s ease-in-out;
+  }
+  .map-deco:hover{
+    filter:grayscale(0%);
+  }

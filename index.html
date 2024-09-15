@@ -26,28 +26,31 @@
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/charts.css">
   </head>
-  <body style = 'height:1000px; padding-top:220px'>
+  <body style = 'height:1000px; padding-top:110px'>
     <!-- Slider element-->
   <div class='container'>
     <div class="header">
       <div class="header-left">
-        <p>Drop Down Menu</p>
-        <div class="dropdown">
-        <button><p>Dropdown</p></button>
-          <a><p>Option 1</p></a>
-          <a><p>Option 2</p></a>
-          <a><p>Option 3</p></a>
-        </div>
+        <p class="header-title">Year Slider</p>
+          <div class="slider-elements">
+            <span class="year-left">2010</span>
+            <input type="range" min="0" max="14" value='7' class="mySlider">
+            <span class="year-right">2024</span>
+          </div>
       </div>
       <div class="header-center">
-        <p class="header-title">Year Slider</p>
-          <input type="range" min="0" max="100" value="50" class="mySlider">
       </div>
-      <div class="header-right"></div>
+      <div class="header-right">
+        <p class="drop-header">Selector</p>
+        <div class="dropdown">
+        <button><p>City Prices</p></button>
+        <button><p>Industry</p></button>
+        </div>
+      </div>
     </div>
 
     <!-- map div -->
-    <div id="map"></div>
+    <div id="map" class="map-deco"></div>
     <div class="charts">
       <div class="bar-chart"></div>
       <div class="scatter-plot"></div>
@@ -55,6 +58,7 @@
   </div>
 
     <script type="text/javascript" src="js/working_script.js"></script>
-
+    <script type="text/javascript" src="js/header.js"></script>
+    <script type="text/javascript" src="js/charts.js"></script>
   </body>
 </html>

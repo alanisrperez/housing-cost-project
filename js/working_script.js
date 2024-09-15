@@ -5,8 +5,7 @@ let myMap = L.map("map", {
   });
   
   // Adding the tile layer
-  L.tileLayer('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   }).addTo(myMap);
   
   // Use this link to get the GeoJSON data.
@@ -49,3 +48,4 @@ d3.json(link).then(function(data) {
     }
   }).addTo(myMap);
 });
+
