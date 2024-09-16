@@ -3,21 +3,86 @@ p {
   }
 .container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     background-color: white;
+}
+.upper-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 10px;
+
 }
 .charts{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: gray;
+    flex: 1;
+    padding: 0px 30px;
 }
-.bar-chart{
-    height:50%;
+
+.bar-chart, .scatter-plot{
+    height: 48%;
+}
+
+.bar-chart {
     background-color: pink;
+    margin-bottom: 25px;
 }
-.scatter-plot{
-    height:50%;
+
+.scatter-plot {
     background-color: lightblue;
+}
+
+.lower-container{
+    display:flex;
+    flex-direction: column;
+    align-items:flex-end;
+    margin: 10px 50px;
+}
+.line-chart {
+    height: 600px;
+    width: 95%;
+    padding: 20px 40px;
+}
+
+.drop{
+    position:relative;
+}
+.dropdown-menu {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:140px;
+    height:200px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+    overflow-y:auto;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.drop-element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+  }
+  
+.drop-element span{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 100;
 }

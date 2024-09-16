@@ -100,7 +100,7 @@
 }
 .header-left{
   width:680px;
-  margin-left: 80px;
+  margin-left: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -111,11 +111,13 @@
 }
 .dropdown button{
   background-color: rgb(110, 110, 110);
-  border:none;
+  border:solid;
+  border-width:0.2px;
   height:50px;
-  width: 130px;
+  width: 160px;
   color:rgb(252, 252, 252);
   cursor:pointer;
+  border-color:white;
   transition: background-color .3s, color .3s, border .3s, border-color .3s, border-width .3s;
 }
 .dropdown button:hover{
@@ -133,7 +135,7 @@
 }
 .header-right{
   width:400px;
-  margin-right:120px;
+  margin-right:210px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -144,4 +146,10 @@
   margin: 8px 0px;
   font-weight: 600;
   letter-spacing: 8px;
+}
+.colored-button{
+  background: linear-gradient(135deg, orange, gold);
+  color: white;
+  border-color: white;
+  border-width: 3px;
 }

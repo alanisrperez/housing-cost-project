@@ -26,7 +26,7 @@
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/charts.css">
   </head>
-  <body style = 'height:1000px; padding-top:110px'>
+  <body style = 'height:1400px; padding-top:120px'>
     <!-- Slider element-->
   <div class='container'>
     <div class="header">
@@ -38,25 +38,37 @@
             <span class="year-right">2024</span>
           </div>
       </div>
-      <div class="header-center">
-      </div>
       <div class="header-right">
         <p class="drop-header">Selector</p>
         <div class="dropdown">
-        <button><p>City Prices</p></button>
-        <button><p>Industry</p></button>
+        <button class = 'js-header-button'><p>City Prices</p></button>
+        <button class = 'js-header-button'><p>Industry</p></button>
         </div>
       </div>
     </div>
 
     <!-- map div -->
-    <div id="map" class="map-deco"></div>
-    <div class="charts">
-      <div class="bar-chart"></div>
-      <div class="scatter-plot"></div>
+    <div class="container">
+      <div class="upper-container">
+        <div id="map" class="map-deco"></div>
+        <div class="charts">
+          <div id='bar'class="bar-chart"></div>
+          <div id='scatter'class="scatter-plot"></div>
+        </div>
+      </div>
+      <div class="lower-container dropdown">
+        <div class="drop">
+          <button class="js-select-county">Select County</button>
+          <div class="dropdown-menu">
+
+          </div>
+        </div>
+        <div id="line" class="line-chart"></div>
+      </div>
     </div>
   </div>
 
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script type="text/javascript" src="js/working_script.js"></script>
     <script type="text/javascript" src="js/header.js"></script>
     <script type="text/javascript" src="js/charts.js"></script>
