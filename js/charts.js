@@ -40,13 +40,20 @@ selectCountyButton.addEventListener('click', () =>{
 selectHeaderButtons = document.querySelectorAll('.js-header-button');
 
 selectHeaderButtons.forEach(button => {
-    button.addEventListener('click', () =>{
-        selectHeaderButtons.forEach(b =>{
-            b.classList.remove('colored-button');
-        })
-        button.classList.add('colored-button');
-    })
-})
+    button.addEventListener('click', () => {
+        if (button.classList.contains('colored-button')) {
+            // If the button is already colored, remove the class
+            button.classList.remove('colored-button');
+        } else {
+            // Remove the class from all buttons
+            selectHeaderButtons.forEach(b => {
+                b.classList.remove('colored-button');
+            });
+            // Add the class to the clicked button
+            button.classList.add('colored-button');
+        }
+    });
+});
 
 function CreateDropDownElement(inputText, index){
     const dropdownMenu = document.querySelector('.dropdown-menu');

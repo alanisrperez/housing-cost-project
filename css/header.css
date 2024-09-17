@@ -98,6 +98,7 @@
   justify-content: center;
   align-items: center;
   width:400px;
+  margin-top:51px;
 }
 .header-left{
   width:680px;
@@ -135,17 +136,10 @@
   border-width: 3px;
 }
 .header-right{
-  margin-top:51px;
   width:180px;
-  margin-right:30px;
+  margin-right:50px;
   display: flex;
   justify-content: flex-end;
-}
-.drop-header{
-  font-size:30px;
-  margin: 8px 0px;
-  font-weight: 600;
-  letter-spacing: 8px;
 }
 .colored-button{
   background: linear-gradient(135deg, orange, gold);
@@ -153,6 +147,7 @@
   border-color: white;
   border-width: 3px;
 }
-.js-select-county{
-  margin-top:100px;
+.js-select-industry{
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-top:51px;
 }

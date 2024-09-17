@@ -22,13 +22,23 @@ p {
     padding: 0px 30px;
 }
 
-.bar-chart, .scatter-plot{
+.two-charts, .scatter-plot{
     height: 48%;
 }
 
-.bar-chart {
+.two-charts {
     background-color: pink;
-    margin-bottom: 25px;
+    display:flex;
+    flex-direction: row;
+}
+
+.bar-chart, .pie-chart {
+    background-color: lightgreen;
+    width: 50%; 
+    box-sizing: border-box; 
+}
+.bar-chart{
+    margin-right:10px;
 }
 
 .scatter-plot {
@@ -85,4 +95,7 @@ p {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 19px;
     font-weight: 100;
+}
+.js-select-county{
+    font-family: 'Roboto Condensed', sans-serif;
 }
