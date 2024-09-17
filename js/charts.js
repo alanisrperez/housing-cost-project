@@ -1,11 +1,12 @@
-let costlink = '../data/avg_cost_by_county.csv';
+let costlink = '../data/housing_by_month.csv';
 
 function LinearChart(Rows) {
     d3.csv(costlink).then((data) => {
         let linearData = []
             for(let i = 0; i < Rows.length; i++){
-            let Row = data[i];
-            let location = `${Row['RegionName']}, ${Row['State']}`
+            let j = Rows[i];
+            let Row = data[j];
+            let location = `${Row['County']}`
 
             let dates = Object.keys(Row).slice(5);
             let values = dates.map(date => parseFloat(Row[date]));
@@ -78,9 +79,9 @@ function CreateDropDownElement(inputText, index){
 
 function AddingDropDownData(){
     d3.csv(costlink).then((data) => {
-        for(let i = 0; i < 20; i++){
+        for(let i = 0; i < data.length; i++){
             let row = data[i];
-            const location = `${row.RegionName}`;
+            const location = `${row.County} County`;
             CreateDropDownElement(location, i)
         }
     }); 

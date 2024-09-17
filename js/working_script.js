@@ -10,10 +10,13 @@ let myMap = L.map("map", {
   
   // Use this link to get the GeoJSON data.
   let link = '../json-data/California_County_Boundaries.geojson'
-  
+  let yearlink = '../data/housing_by_year.csv'
 // Getting our GeoJSON data
-d3.json(link).then(function(data) {
+Promise.all([d3.json(link), d3.csv(yearlink)]).then(function([data, costdata]) {
   // Creating a GeoJSON layer with the retrieved data
+
+  //fillColor = costColorScale(data.feature.value)
+
   L.geoJson(data, {
     style: {
       color: 'white',
@@ -49,3 +52,7 @@ d3.json(link).then(function(data) {
     }
   }).addTo(myMap);
 });
+
+const costcolorScale = d3.scaleLinear()
+    .domain([100000, 500000, 750000, 1000000])
+    .range(["green", "gold", "orange", "red"]);
