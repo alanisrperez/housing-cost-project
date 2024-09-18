@@ -46,6 +46,24 @@ Data Limitations
 ---------------------
 
 
+IMAGES
 
+![additional cleaning.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/additional%20cleaning.png)
+![additional cleaning2.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/additional%20cleaning2.png)
+![charts.js.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/charts.js.png)
+![charts2.js.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/charts2.js.png)
+![cleaning data.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/cleaning%20data.png)
+![cleaning data2.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/cleaning%20data2.png)
+![cleaning data3.png)](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/cleaning%20data3.png)
+![cleaning house data.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/cleaning%20house%20data.png)
+![cleaning house data2.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/cleaning%20house%20data2.png)
+![cleaning house data3.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/cleaning%20house%20data3.png)
+![header 2.js.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/header%202.js.png)
+![header.js.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/header.js.png)
+![index html.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/index%20html.png)
+![index html2.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/index%20html2.png)
+![more cleaning json.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/more%20cleaning%20json.png)
+![working progress.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/working%20progress.png)
+![working script.js.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/working%20script.js.png)
 
 
