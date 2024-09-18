@@ -45,7 +45,9 @@ d3.json(link).then(function(data) {
         // When a feature (neighborhood) is clicked, it enlarges to fit the screen.
         click: function(event) {
           myMap.fitBounds(event.target.getBounds());
-          console.log(feature.properties.CountyName)
+          pieChart(feature.properties.CountyName,
+            document.querySelector('.mySlider').value
+          );
         }
       });
     }

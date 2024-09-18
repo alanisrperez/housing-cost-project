@@ -151,3 +151,26 @@
   font-family: 'Roboto Condensed', sans-serif;
   margin-top:51px;
 }
+.dropdown-menu-industry{
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:140px;
+  height:200px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+  overflow-y:auto;
+}
+
+.dropdown-menu-industry.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}

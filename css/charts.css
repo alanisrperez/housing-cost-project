@@ -60,7 +60,7 @@ p {
 .drop{
     position:relative;
 }
-.dropdown-menu {
+.dropdown-menu-county{
     position: absolute;
     background-color: rgb(255, 255, 255);
     padding: 10px;
@@ -78,7 +78,7 @@ p {
     overflow-y:auto;
 }
 
-.dropdown-menu.show {
+.dropdown-menu-county.show {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
