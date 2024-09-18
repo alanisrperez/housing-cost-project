@@ -15,16 +15,20 @@ This project aims to analyze the trends in median household costs across Califor
 
 Project Questions
 ---------------------
-??????
+- How much has the median household value changed over the last ~15 years?
+-- How much does this vary by county?
+- What industries have the largest work forces in each county?
+- Is there a relationship between industry and household value?
 
 Resources
 ---------------------
 Housing Data - Zillow Research — Median home value by county
+- (https://www.zillow.com/research/data/)
 Employment by Industry Data (ca.gov) — Employment numbers per industry by county
+- (https://labormarketinfo.edd.ca.gov/data/employment-by-industry.html)
 
 Analysis and Visualizations
 ---------------------
-Visualizations to create
 Median house cost of each county across all years in the dataset
 Scatterplot, bind popup with information for each county
 Map will show different color depending on median home value
