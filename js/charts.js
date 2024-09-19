@@ -166,6 +166,9 @@ function scatterPlot(industryLabel = 'Leisure and Hospitality') {
             x: allScatterData.map(d => d.x),
             y: allScatterData.map(d => d.y),
             mode: 'markers',
+            marker: {
+                opacity: 0.6 
+              },
             type: 'scatter',
             text: allScatterData.map(d => d.text),
             hoverinfo: 'text' // Only show the tooltip with text
@@ -205,8 +208,8 @@ function barChart(industrylabel = 'Government', year = 2013) {
 
         // Sort the data by the year-specific value in descending order
         let sortedData = filteredData.sort((a, b) => 
-            b.Industry.find(ind => ind.Category === industrylabel).Number_Of_Workers[year] - 
-            a.Industry.find(ind => ind.Category === industrylabel).Number_Of_Workers[year]
+            b.Industry.find(ind => ind.Category === industrylabel).Workers_Per_100k[year] - 
+            a.Industry.find(ind => ind.Category === industrylabel).Workers_Per_100k[year]
         );
     
         // Get the top ten entries
@@ -217,7 +220,7 @@ function barChart(industrylabel = 'Government', year = 2013) {
         // Prepare the data for the bar chart
         let trace = {
             x: topTenData.map(d => d.County), // Labels for the x-axis (Counties)
-            y: topTenData.map(d => Number(d.Industry.find(ind => ind.Category === industrylabel).Number_Of_Workers[year])), // Values for the y-axis (Workers)
+            y: topTenData.map(d => Number(d.Industry.find(ind => ind.Category === industrylabel).Workers_Per_100k[year])), // Values for the y-axis (Workers)
             type: 'bar',
             marker: {
                 color: 'gold' // Customize the bar color
