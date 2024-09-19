@@ -5,12 +5,14 @@ let myMap = L.map("map", {
   });
   
   // Adding the tile layer
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  }).addTo(myMap);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+}).addTo(myMap);
   
   // Use this link to get the GeoJSON data.
-  let link = '../json-data/California_County_Boundaries.geojson'
-// Getting our GeoJSON data
+let link = 'https://cecgis-caenergy.opendata.arcgis.com/api/download/v1/items/ce721c35ab7e4e4b89ef2080b4c331f6/geojson?layers=0';
+
+// Initialize a variable to hold the GeoJSON data
+
 d3.json(link).then(function(data) {
   // Creating a GeoJSON layer with the retrieved data
 
@@ -44,7 +46,11 @@ d3.json(link).then(function(data) {
         // When a feature (neighborhood) is clicked, it enlarges to fit the screen.
         click: function(event) {
           myMap.fitBounds(event.target.getBounds());
-          pieChart(feature.properties.CountyName,
+          L.popup()
+            .setLatLng(event.latlng) // Set popup to the clicked location
+            .setContent(`<b>${feature.properties.NAME}</b>`) // Set the content of the popup
+            .openOn(myMap);
+          pieChart(feature.properties.NAME,
             document.querySelector('.mySlider').value
           );
         }
@@ -52,7 +58,3 @@ d3.json(link).then(function(data) {
     }
   }).addTo(myMap);
 });
-
-const costcolorScale = d3.scaleLinear()
-    .domain([100000, 500000, 750000, 1000000])
-    .range(["green", "gold", "orange", "red"]);

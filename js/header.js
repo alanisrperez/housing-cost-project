@@ -43,6 +43,7 @@ function costColor(value) {
     
     return costcolorScale(value);
 }
+
 // year slider input
 const inputSlider = document.querySelector('.mySlider');
 // Add an event listener for the 'input' event
@@ -56,141 +57,83 @@ inputSlider.addEventListener('input', function() {
   // Log the current value of the slider
   else if(pricesbutton.classList.contains('colored-button')){
     //Temp Merge of the two data types
-    Promise.all([d3.json(link),d3.csv(yearlink)]).then(function([data, costdata]) {
+// Temp Merge of the two data types
+    Promise.all([d3.json(link), d3.json(industrydata)]).then(function([data, costdata]) {
       
       // Create a new array that merges data from both datasets
       let mergedData = data.features.map(feature => {
-      let countyName = feature.properties.CountyName; // Extract the county name
-      let geometry = feature.geometry;
-      // Find the corresponding entry in costdata by matching JSON's CountyName with CSV's County
-      let costEntry = costdata.find(c => c.County === countyName);
-      let costForYear = costEntry ? costEntry[year.toString()] : null
+        let countyName = feature.properties.NAME.replace(' County', '');; // Extract the county name
+        let geometry = feature.geometry;
         
+        // Find the corresponding entry in costdata by matching JSON's CountyName with the data
+        let costEntry = costdata.find(c => c.County === countyName);
+        
+        // Extract housing cost and population data for the selected year
+        let costForYear = costEntry ? costEntry.housing_cost_by_year[year.toString()] : null;
+
         // Return a new object that combines fields from both datasets
-      return {
-        type: "Feature",
-        properties: {
-          countyName:countyName,
-          year:year,
-          costForYear: costForYear 
-        },
-        geometry: geometry
+        return {
+          type: "Feature",
+          properties: {
+            countyName: countyName,
+            year: year,
+            costForYear: costForYear,
+          },
+          geometry: geometry
         };
       });
+      console.log(mergedData)
+      
+      // Remove existing layers if needed
       myMap.eachLayer(function (layer) {
-          if (layer instanceof L.GeoJSON) {
-              myMap.removeLayer(layer);
-          }
+        if (layer instanceof L.GeoJSON) {
+          myMap.removeLayer(layer);
+        }
       });
+      
+      // Add the merged data to the map
       L.geoJson(mergedData, {
-          style: function(feature) {
-              return {
-                  color: 'white',
-                  fillColor: costColor(feature.properties.costForYear),
-                  fillOpacity: 0.5,
-                  weight: 0.5
-              }
-          },
-          // This is called on each feature.
-          onEachFeature: function(feature, layer) {
-            // Set the mouse events to change the map styling.
-            layer.on({
-              // When a user's mouse cursor touches a map feature, the mouseover event calls this function
-              // This changes the feature's opacity to 90% so that it stands out.
-              mouseover: function(event) {
-                layer = event.target;
-                layer.setStyle({
-                  fillOpacity: 0.9
-                });
-              },
-              // When the cursor no longer hovers over a map feature (mouseout event), the feature's opacity reverts back to 50%.
-              mouseout: function(event) {
-                layer = event.target;
-                layer.setStyle({
-                  fillOpacity: 0.5
-                });
-              },
-              // When a feature (neighborhood) is clicked, it enlarges to fit the screen.
-              click: function(event) {
-                myMap.fitBounds(event.target.getBounds());
-                pieChart(feature.properties.countyName,
-                  document.querySelector('.mySlider').value
-                );
-              }
-            });
+        style: function(feature) {
+          return {
+            color: 'white',
+            fillColor: costColor(feature.properties.costForYear),
+            fillOpacity: 0.5,
+            weight: 0.5
           }
-        }).addTo(myMap);
+        },
+        onEachFeature: function(feature, layer) {
+          // Set the mouse events to change the map styling.
+          layer.on({
+            mouseover: function(event) {
+              layer = event.target;
+              layer.setStyle({
+                fillOpacity: 0.9
+              });
+            },
+            mouseout: function(event) {
+              layer = event.target;
+              layer.setStyle({
+                fillOpacity: 0.5
+              });
+            },
+            click: function(event) {
+              myMap.fitBounds(event.target.getBounds());
+              L.popup()
+                .setLatLng(event.latlng)
+                .setContent(`<b>${feature.properties.countyName}</b>`)
+                .openOn(myMap);
+              pieChart(feature.properties.countyName,
+                document.querySelector('.mySlider').value
+              );
+            }
+          });
+        }
+      }).addTo(myMap);  
     });
-  }
+
+}
   else if(industrybutton.classList.contains('colored-button')){
     console.log('Industry Button Selection')
-
-        //Temp Merge of the two data types
-    Promise.all([d3.json(link),d3.jaon(industrydata)]).then(function([geodata, industsrydata]) {
-      
-          // Create a new array that merges data from both datasets
-      let mergedData = data.features.map(feature => {
-      let countyName = feature.properties.CountyName; // Extract the county name
-      let geometry = feature.geometry;
-          // Find the corresponding entry in costdata by matching JSON's CountyName with CSV's County
-      let costEntry = costdata.find(c => c.County === countyName);
-      let costForYear = costEntry ? costEntry[year.toString()] : null
-            
-            // Return a new object that combines fields from both datasets
-      return {
-        type: "Feature",
-        properties: {
-          countyName:countyName,
-          year:year,
-          costForYear: costForYear 
-        },
-        geometry: geometry
-      };
-      });
-      myMap.eachLayer(function (layer) {
-          if (layer instanceof L.GeoJSON) {
-              myMap.removeLayer(layer);
-          }
-      });
-      L.geoJson(mergedData, {
-          style: function(feature) {
-              return {
-                  color: 'white',
-                  fillColor: costColor(feature.properties.costForYear),
-                  fillOpacity: 0.5,
-                  weight: 0.5
-              }
-          },
-              // This is called on each feature.
-          onEachFeature: function(feature, layer) {
-                // Set the mouse events to change the map styling.
-            layer.on({
-                  // When a user's mouse cursor touches a map feature, the mouseover event calls this function
-                  // This changes the feature's opacity to 90% so that it stands out.
-              mouseover: function(event) {
-                layer = event.target;
-                layer.setStyle({
-                  fillOpacity: 0.9
-                });
-              },
-                  // When the cursor no longer hovers over a map feature (mouseout event), the feature's opacity reverts back to 50%.
-              mouseout: function(event) {
-                layer = event.target;
-                layer.setStyle({
-                  fillOpacity: 0.5
-                });
-              },
-                  // When a feature (neighborhood) is clicked, it enlarges to fit the screen.
-              click: function(event) {
-                myMap.fitBounds(event.target.getBounds());
-                pieChart(feature.properties.countyName,
-                  document.querySelector('.mySlider').value
-                );
-              }
-            });
-          }
-        }).addTo(myMap);
-      });
   }
 });
 
@@ -234,28 +177,30 @@ function CreateDropDownElementIndustry(inputText, index){
     dropdownMenu.appendChild(dropElement);
 };
 
-checkbox_name_list = ['Mining Logging and Construction',
-  'Mining and Logging',
-  'Construction',
+checkbox_name_list = ['Civilian Unemployment',
+  'Total Farm',
+  'Total Nonfarm',
+  'Mining Logging and Construction',
   'Manufacturing',
-  'Trade Transportation and Utilities',
-  'Other Motor Vehicle Dealers',
-  'Food and Beverage Retailers',
-  'Furniture Home Furnishings Electronics and App',
-  'General Merchandise Retailers',
+  'Trade Transportation & Utilities',
   'Information',
-  'Computing Infrastructure Providers Data Processi',
   'Financial Activities',
   'Professional and Business Services',
   'Private Education and Health Services',
   'Leisure and Hospitality',
   'Other Services',
   'Government',
-  'Total Farm',
+  'Goods Producing',
   'Service-Providing',
-  'Non-Durable Goods',
-  'Total Nonfarm',
-  'Goods Producing']
+  'Mining and Logging',
+  'Construction',
+  'Trade Transportation and Utilities',
+  'Private Service Providing - Residual',
+  'Other Motor Vehicle Dealers',
+  'Food and Beverage Retailers',
+  'Furniture Home Furnishings Electronics and App',
+  'General Merchandise Retailers',
+  'Transportation Warehousing and Utilities']
 
 //this loops the creation of a drop down element/ the function directly above
 function AddingDropDownDataIndustry() {

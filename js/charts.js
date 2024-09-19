@@ -119,6 +119,12 @@ function pieChart(County, year) {
         console.log(trace);
         let layout = {
             showlegend:false,
+            title: {
+                text: `Industry Percent, ${County} - ${tempYear}`,
+                font: {
+                    size: 12 // Set the font size for the title
+                }
+            },
             margin: {
                 l: 50, // Left margin
                 r: 50, // Right margin
@@ -200,7 +206,6 @@ function scatterPlot(industryLabel = 'Leisure and Hospitality') {
 
 scatterPlot();
 
-
 function barChart(industrylabel = 'Government', year = 2013) {
     d3.json(industrydata).then(data => {
         // Filter data by industry label
@@ -223,12 +228,18 @@ function barChart(industrylabel = 'Government', year = 2013) {
             y: topTenData.map(d => Number(d.Industry.find(ind => ind.Category === industrylabel).Workers_Per_100k[year])), // Values for the y-axis (Workers)
             type: 'bar',
             marker: {
-                color: 'gold' // Customize the bar color
+                color: topTenData.map(d => costColor(d.housing_cost_by_year[year]))
             }
         };
         
         // Layout for the bar chart
         let layout = {
+            title: {
+                text: `Worker Per 100k, ${industrylabel} - ${year}`,
+                font: {
+                    size: 8 // Set the font size for the title
+                }
+            },
             showlegend: false,
             margin: {
                 l: 40, // Left margin
