@@ -101,22 +101,22 @@ function CreateAllLinear(){
 
 AddingDropDownDataCounty();
 
-let industrydata = '../data/industry_county.json'
+let industrydata = '../jupyter-notebook/Industry_Housing_County_Completed.json'
 
 function pieChart(County, year) {
     // Filter the data for "Alameda" county
     d3.json(industrydata).then(data => {
         // Filter the data for "Alameda" county
-        const filteredData = data.filter(item => item.County_ID === County);
-        console.log(year)
+        const filteredData = data.filter(item => item.County === County);
+        tempYear = Number(year)+2010;
 
-        const topTenData = filteredData.slice(0, 10);
         // Prepare the data for the pie chart
         let trace = {
-            values: topTenData.map(d => d[`${Number(year)+ 2010}_Average`]), // Map the 2023 average values
-            labels: topTenData.map(d => d.TITLE), // Map the titles for labels
+            values: filteredData[0].Industry.map(industry => industry.Number_Of_Workers[tempYear]), // Get the worker numbers for the specified year
+            labels: filteredData[0].Industry.map(industry => industry.Category), // Map the titles for labels
             type: 'pie'
         };
+        console.log(trace);
         let layout = {
             showlegend:false,
             margin: {
@@ -133,35 +133,98 @@ function pieChart(County, year) {
     })
 }
 
-function scatterPlot(industrylabel = 'Civilian Labor Force'){
-    const filteredData = data.filter(item => item.TITLE === industrylabel)
-    Promise.all([d3.json(filteredData),d3.csv(yearlink)]).then(function([data, costdata]) {
-        let mergedData = data.map(feature =>{
-            let countyName = feature.County_ID
-        })
+function scatterPlot(industryLabel = 'Leisure and Hospitality') {
+    // Load the data using d3.json inside the function
+    d3.json(industrydata).then(data => {
+        let allScatterData = []; // Single array for all data points
+
+        // Loop through each county's dataset
+        data.forEach(item => {
+            // Filter for the relevant industry within each county
+            let industry = item.Industry.find(ind => ind.Category === industryLabel);
+            if (!industry) {
+                return; // Skip if the industry is not found
+            }
+
+            let employeeData = industry.Workers_Per_100k;
+            let housingData = item.housing_cost_by_year;
+
+            // Match years between employee data and housing cost data
+            Object.keys(employeeData).forEach(year => {
+                if (housingData[year]) {
+                    allScatterData.push({
+                        x: employeeData[year],  // Number of workers
+                        y: housingData[year],   // Housing cost
+                        text: `County: ${item.County} - Year: ${year}` // Tooltip with county and year
+                    });
+                }
+            });
+        });
+
+        // Create a single trace for all data points
+        let trace = {
+            x: allScatterData.map(d => d.x),
+            y: allScatterData.map(d => d.y),
+            mode: 'markers',
+            type: 'scatter',
+            text: allScatterData.map(d => d.text),
+            hoverinfo: 'text' // Only show the tooltip with text
+        };
+
+        // Layout for the scatter plot
+        let layout = {
+            title: `${industryLabel} vs Housing Costs (All Counties)`,
+            xaxis: {
+                title: 'Industry Worker per 100k'
+            },
+            yaxis: {
+                title: 'Housing Costs'
+            },
+            showlegend: false, // No legend
+            margin: {
+                l: 60, // Left margin
+                r: 60, // Right margin
+                t: 50, // Top margin
+                b: 50  // Bottom margin
+            }
+        };
+
+        // Render all counties' data as a single trace on the scatter plot
+        Plotly.react('scatter', [trace], layout);
     })
 }
 
-function barChart(industrylabel = 'Civilian Labor Force', year = 2013){
+
+scatterPlot();
+
+
+function barChart(industrylabel = 'Government', year = 2013) {
     d3.json(industrydata).then(data => {
-        let filteredData = data.filter(item => item.TITLE === industrylabel)
-        const yearKey = `${year}_Average`;
+        // Filter data by industry label
+        let filteredData = data.filter(item => item.Industry.some(ind => ind.Category === industrylabel));
 
         // Sort the data by the year-specific value in descending order
-        let sortedData = filteredData.sort((a, b) => b[yearKey] - a[yearKey]);
+        let sortedData = filteredData.sort((a, b) => 
+            b.Industry.find(ind => ind.Category === industrylabel).Number_Of_Workers[year] - 
+            a.Industry.find(ind => ind.Category === industrylabel).Number_Of_Workers[year]
+        );
     
         // Get the top ten entries
         const topTenData = sortedData.slice(0, 10);
-        console.log(topTenData)
-        console.log(yearKey)
+        console.log(topTenData); // Debugging
+        console.log(year); // Debugging
+        
+        // Prepare the data for the bar chart
         let trace = {
-            x: topTenData.map(d => d.County_ID), // Labels for the x-axis
-            y: topTenData.map(d => Number(d[yearKey])), // Values for the y-axis
+            x: topTenData.map(d => d.County), // Labels for the x-axis (Counties)
+            y: topTenData.map(d => Number(d.Industry.find(ind => ind.Category === industrylabel).Number_Of_Workers[year])), // Values for the y-axis (Workers)
             type: 'bar',
             marker: {
-                color: 'gold' // Change this to your desired color
+                color: 'gold' // Customize the bar color
             }
         };
+        
+        // Layout for the bar chart
         let layout = {
             showlegend: false,
             margin: {
@@ -170,8 +233,10 @@ function barChart(industrylabel = 'Civilian Labor Force', year = 2013){
                 t: 40, // Top margin
                 b: 80  // Bottom margin
             },
-        }
-        Plotly.newPlot('bar', [trace], layout)
-    })
+        };
+
+        // Plot the bar chart using Plotly
+        Plotly.newPlot('bar', [trace], layout);
+    });
 }
 barChart();

@@ -14,7 +14,6 @@ let myMap = L.map("map", {
 d3.json(link).then(function(data) {
   // Creating a GeoJSON layer with the retrieved data
 
-  //fillColor = costColorScale(data.feature.value)
 
   L.geoJson(data, {
     style: {

@@ -27,13 +27,11 @@ p {
 }
 
 .two-charts {
-    background-color: pink;
     display:flex;
     flex-direction: row;
 }
 
 .bar-chart, .pie-chart {
-    background-color: lightgreen;
     width: 50%; 
     box-sizing: border-box; 
 }
