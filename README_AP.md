@@ -22,7 +22,7 @@ Resources & Data Wrangling
 Housing Data - Zillow Research — Median home value by county
 - (https://www.zillow.com/research/data/)
 - Dataset developed by Zillow. Original csv file includes 3074 entries across the timeframe of January 2004 to July 2024 across all 50 states. Each data entry reports the median housing cost per month.
-- For this dataset, we started by reading in the CSV & filtering to only focus on counties in California. // Since the dataset is structured to give us the median home value every month, we took an average of all months to create columns for every year from 2010 to 2014. // Lastly, using only the new columns that give us the median average for the whole year, we exported the data to a JSON for further analysis.
+- For this dataset, we started by reading in the CSV & filtering to only focus on counties in California. Since the dataset is structured to give us the median home value every month, we took an average of all months to create columns for every year from 2010 to 2014. Lastly, using only the new columns that give us the median average for the whole year, we exported the data to a JSON for further analysis.
 
 ![cleaning house data.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/cleaning%20house%20data.png)
 ![cleaning house data2.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/cleaning%20house%20data2.png)
@@ -33,7 +33,7 @@ Employment by Industry Data — Employment numbers per industry by county
 - (https://labormarketinfo.edd.ca.gov/data/employment-by-industry.html)
 - Datasets developed by Employment Development Department (EDD) of the State of California, based on Current Employment Stats (CES) survey
 -- Takes summary of monthly employment, hours, & earnings from a sample of CA employers, then adjusts data seasonally, & laslty makes final revisions to statewide & local area data based on payroll tax reports.
-- For this dataset, we started by creating the categorizations of our industry main categories & subcategories, based on the formatting of indentations by row. Industry categorizations are based on the North American Industry Classification System (NAICS). We then selected the main categories to serve as our rows and included all subcategory data into the respective main category that it belongs to. This way, we can focus only on main categories. We created new files per county that show us this combined data. // Using the combined data files, we created columns for each year from 2010 to 2024. Just like our other dataset that looked at median home value by county, this dataset was also set up to give an average number of people employed per month. So, we took an average for the year and created our new transformed data files. // Lastly, we converted this data into a JSON. 
+- For this dataset, we started by creating the categorizations of our industry main categories & subcategories, based on the formatting of indentations by row. Industry categorizations are based on the North American Industry Classification System (NAICS). We then selected the main categories to serve as our rows and included all subcategory data into the respective main category that it belongs to. This way, we can focus only on main categories. We created new files per county that show us this combined data. Using the combined data files, we created columns for each year from 2010 to 2024. Just like our other dataset that looked at median home value by county, this dataset was also set up to give an average number of people employed per month. So, we took an average for the year and created our new transformed data files. Lastly, we converted this data into a JSON. 
 
 ![additional cleaning.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/additional%20cleaning.png)
 ![additional cleaning2.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/additional%20cleaning2.png)
@@ -59,7 +59,7 @@ We wanted the visualizations to include the following:
 - Line chart for median home value per county
 -- Based on selected county of 
 
-![Completed Dashboard Last.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/Completed%20Dashboard%20Last.png)
+![Completed Dashboard.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/Completed%20Dashboard.png)
 
 
 Key Takeaways
