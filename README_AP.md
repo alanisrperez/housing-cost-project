@@ -37,7 +37,6 @@ Employment by Industry Data — Employment numbers per industry by county
 
 ![additional cleaning.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/additional%20cleaning.png)
 ![additional cleaning2.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/additional%20cleaning2.png)
-![more cleaning json.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/more%20cleaning%20json.png)
 
 
 Dashboard & Visualizations
@@ -51,14 +50,16 @@ To create an interactive page where users can sort through the data files & crea
 We wanted the visualizations to include the following:
 - Map of California
 -- Each county will be colored according to the median home value. This will vary by year as user adjusts the year slider.
-- Scatterplot for... 
--- this looks at...
-- Pie chart for the industries in a given county
--- When the user selects a county, a pie chart will show all the industries and the number of workers per capita. This shows the most popular work industries for the selected county.
-- Bar chart for counties ...
--- Based on the selected county/ industry ? ......
+- Scatterplot for number of employees in an industry by median home value
+-- Based on selected year of interest
+- Pie chart for all industries in a given county
+-- Based on selected county of interest
+- Bar chart for number of employees in an industry per county
+-- Based on the selected industry of interest
+- Line chart for median home value per county
+-- Based on selected county of 
 
-![working progress.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/working%20progress.png)
+![Completed Dashboard Last.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/Completed%20Dashboard%20Last.png)
 
 
 Key Takeaways
@@ -74,34 +75,23 @@ Some of the more general findings across all years include:
 - San Francisco, Marin, San Mateo, Alameda, Santa Clara, Santa Cruz, and Los Angeles are the most expensive counties for median home value.
 -- The more expensive counties saw more increased rates of home prices compared to less expensive counties.
 - Increased interest rates in 2022 correlate to increase of median house price in many counties.
-WHAT DOES THIS TELL US?
-- WHAT CAN WE TAKE FROM THIS? WHAT CAN WE CONCLUDE?
-ALSO WHAT ABOUT UNEMPLOYMENT? ANY FINDINGS?
+So, what can we conclude from these findings?
+- Depending on expanding industry type, this can increase cost of living for all. Like in the counties listed above, we see an increase of popular or upcoming industries and a raise in the cost of living. Now, this could potentially make for a fair trade off of successful expanding businesses and jobs that earn higher wages to a more enhanced style of living, reflected in our homes. On the other hand, this may poorly impact communities that live in that area but do not work in more popular industries.
+- Looking at data like this can also give users an idea of what industries are growing and therefore more attractive to those seeking a career change. It can also help people determine what counties may be a good fit given the industry they work in. Users can see what counties have higher populations of employees working in different areas.
 
 Data Limitations
 ---------------------
 - Like all surveys, the dataset reporting industry employment numbers is subject to sampling & non-sampling errors.
 - Each county reported work industry data differently and in some cases, inconsistently.
 -- Some counties (e.g. Los Angeles, San Diego) report multiple subcategories which helps create a more in-depth dataset that accounts for several different industries. This can be very useful depending on the type of industry a user may be interested in. This variety is helpful in determining impact or influence of specific sectors.
--- Some counties (e.g. Sierra, Alpine) report industry data under “catch-all” categories (e.g. Goods Producing/Service Providing) which does not tell us a lot about the employment sectios in those areas. Large and broad categories such as Service Providing can include a diversity of industries ranging from transportation, retail, warehousing, information, financial activities and more. There aren't many conclusions or findings that can be drawn from this lack of categorization and reporting.
+-- Some counties (e.g. Sierra, Alpine) report industry data under “catch-all” categories (e.g. Goods Producing/Service Providing) which does not tell us a lot about the industries in those areas. Large and broad categories such as Service Providing can include a diversity of industries ranging from transportation, retail, warehousing, information, financial activities and more. There aren't many conclusions or findings that can be drawn from this lack of categorization and reporting.
 -- Some counties may report different categories types. For example, some counties include "Mining, Logging, and Construction" as one main category with all related industries as subcategories. Other counties reported "Mining & Logging" and "Construction" as individual main categories both with their own set of subcategories. These inconsistencies can lead to different patterns in employment numbers.
 - “Tech” as an industry classification
 -- One industry that our team was interested in searching was tech, especially given how much it has grown over the past 20 years. However, this is a very broad industry. Tech can include manufacturing, support, & the research & development of computing, telecommunication, & consumer electronics. It can include tech products & services like digital electronics, software, optics, new energy storage, or internet services lisuch as cloud storage or e-commerce. So, because tech is so broad, it can fall under any of the categories defined by the NAICS, such as: manufacturing, retail, information, professional, scientific, & tech services, public administration, etc.
 - Although it is not a limitation of the dataset itself, a rather large obstacle for data users is the inconsistency & messiness of the original data files.
 -- There were many inconsistencies in the way categories were indented (to represent categories & subcategories). Some categories had a mix of tabs and indentations to determine categorization level. This mix and inconsistency in character codes made it difficult to properly iterate through lines of code. This is especially frustrating considering there were 58 files to sift through. Another inconsistency were some data rows being labelled differently even though they represent the same information. For example, some datasets had "Total, All Industries" where others had "Total, Wages & Salaries". Both rows represented the same type of data. Some industries used oxford commas where others did not, making iteration between commas also annoying to sift through.
 
-
-IMAGES - UNUSED
+Conclusion
 ---------------------
-Charts - IDK WHAT THESE ARE FOR 
-![charts.js.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/charts.js.png)
-![charts2.js.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/charts2.js.png)
-
-Java Script - one I don't know exactly what each screenshot does & two we have an overall working script.js image.. can that image replace these two?
-![header 2.js.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/header%202.js.png)
-![header.js.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/header.js.png)
-
-** NEED UPDATED ADDT'L CLEANING (first block of data in industry_county_data_AP)
-** NEED UPDATED MORE CLEANING JSON (json file of industry_county_json)
-** NEED UPDATED WORKING PROGRESS (image of dashboard)
-** NEED IMAGES OF VISUALIZATIONS CREATED
+The exploration of the relationship between median household values and employment industries across California counties reveals important trends that highlight economic disparities and industry-specific influences on housing affordability. We observed that counties with higher median household values, such as San Francisco, Marin, and Santa Clara, are often driven by industries like information, financial activities, and construction, which are prevalent in wealthier regions. Conversely, counties with a stronger presence of industries like mining and logging, such as Kern County, tend to have lower median home values, suggesting an inverse relationship between certain industries and housing prices.
+While some counties show clear correlations between specific industries and rising home prices, inconsistencies in data reporting and classification across counties pose challenges for making uniform comparisons. Additionally, the broad categorization of industries, particularly in sectors like technology, limits our ability to pinpoint the exact impact of fast-growing industries. These findings provide valuable insights for understanding the economic forces shaping housing markets in California, but also highlight the need for more standardized and detailed data collection to further refine our understanding.
