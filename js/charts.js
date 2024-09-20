@@ -139,7 +139,7 @@ function pieChart(County, year) {
     })
 }
 
-function scatterPlot(industryLabel = 'Leisure and Hospitality') {
+function scatterPlot(industryLabel = 'Government') {
     // Load the data using d3.json inside the function
     d3.json(industrydata).then(data => {
         let allScatterData = []; // Single array for all data points
@@ -206,7 +206,7 @@ function scatterPlot(industryLabel = 'Leisure and Hospitality') {
 
 scatterPlot();
 
-function barChart(industrylabel = 'Government', year = 2013) {
+function barChart(industrylabel = 'Government', year = 2010) {
     d3.json(industrydata).then(data => {
         // Filter data by industry label
         let filteredData = data.filter(item => item.Industry.some(ind => ind.Category === industrylabel));

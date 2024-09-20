@@ -62,7 +62,7 @@ inputSlider.addEventListener('input', function() {
       
       // Create a new array that merges data from both datasets
       let mergedData = data.features.map(feature => {
-        let countyName = feature.properties.NAME.replace(' County', '');; // Extract the county name
+        let countyName = feature.properties.CountyName; // Extract the county name
         let geometry = feature.geometry;
         
         // Find the corresponding entry in costdata by matching JSON's CountyName with the data
@@ -82,7 +82,6 @@ inputSlider.addEventListener('input', function() {
           geometry: geometry
         };
       });
-      console.log(mergedData)
       
       // Remove existing layers if needed
       myMap.eachLayer(function (layer) {
@@ -135,6 +134,12 @@ inputSlider.addEventListener('input', function() {
   else if(industrybutton.classList.contains('colored-button')){
     console.log('Industry Button Selection')
   }
+  if(document.querySelector('.selected')){
+    let selected = document.querySelector('.selected')
+    let nextElement = selected.nextElementSibling.textContent;
+    console.log(nextElement)
+    barChart(nextElement,year)
+  }
 });
 
 //this creates the drop down menu of industry types as a checklist
@@ -154,17 +159,19 @@ function CreateDropDownElementIndustry(inputText, index){
     checkbox.addEventListener('change', (event) => {
         if (event.target.checked) {
             // Uncheck all other checkboxes in the dropdown
+            checkbox.classList.add('selected')
             const allCheckboxes = dropdownMenu.querySelectorAll('input[type="checkbox"]');
             allCheckboxes.forEach((box) => {
                 if (box !== checkbox) {
                     box.checked = false;
+                    box.classList.remove('selected')
                 }
             });
         }
         const textContent = checkbox.nextSibling ? checkbox.nextSibling.textContent : '';
         console.log(textContent);
         scatterPlot(textContent);
-        barChart(textContent,2013)
+        barChart(textContent,2010)
     });
 
     // Create the span element
