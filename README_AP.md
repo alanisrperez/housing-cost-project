@@ -90,6 +90,11 @@ Data Limitations
 - Although it is not a limitation of the dataset itself, a rather large obstacle for data users is the inconsistency & messiness of the original data files.
 -- There were many inconsistencies in the way categories were indented (to represent categories & subcategories). Some categories had a mix of tabs and indentations to determine categorization level. This mix and inconsistency in character codes made it difficult to properly iterate through lines of code. This is especially frustrating considering there were 58 files to sift through. Another inconsistency were some data rows being labelled differently even though they represent the same information. For example, some datasets had "Total, All Industries" where others had "Total, Wages & Salaries". Both rows represented the same type of data. Some industries used oxford commas where others did not, making iteration between commas also annoying to sift through.
 
+Conclusion
+---------------------
+The exploration of the relationship between median household values and employment industries across California counties reveals important trends that highlight economic disparities and industry-specific influences on housing affordability. We observed that counties with higher median household values, such as San Francisco, Marin, and Santa Clara, are often driven by industries like information, financial activities, and construction, which are prevalent in wealthier regions. Conversely, counties with a stronger presence of industries like mining and logging, such as Kern County, tend to have lower median home values, suggesting an inverse relationship between certain industries and housing prices.
+
+While some counties show clear correlations between specific industries and rising home prices, inconsistencies in data reporting and classification across counties pose challenges for making uniform comparisons. Additionally, the broad categorization of industries, particularly in sectors like technology, limits our ability to pinpoint the exact impact of fast-growing industries. These findings provide valuable insights for understanding the economic forces shaping housing markets in California, but also highlight the need for more standardized and detailed data collection to further refine our understanding.
 
 IMAGES - UNUSED
 ---------------------
