@@ -24,9 +24,9 @@ Housing Data - Zillow Research — Median home value by county
 - Dataset developed by Zillow. The original csv file includes 3074 entries across the timeframe of January 2004 to July 2024 across all 50 states. Each data entry reports the median housing cost per month.
 - For this dataset, we started by reading in the CSV & filtering to only focus on counties in California. Since the dataset is structured to give us the median home value every month, we took an average of all months to create columns for every year from 2010 to 2014. Lastly, using only the new columns that give us the median average for the whole year, we exported the data to a JSON for further analysis.
 
-![cleaning house data.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/cleaning%20house%20data.png)
-![cleaning house data2.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/cleaning%20house%20data2.png)
-![cleaning house data3.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/cleaning%20house%20data3.png)
+![cleaning house data.png](https://github.com/alanisrperez/housing-cost-project/blob/main/Eddie/Images/cleaning%20house%20data.png)
+![cleaning house data2.png](https://github.com/alanisrperez/housing-cost-project/blob/main/Eddie/Images/cleaning%20house%20data2.png)
+![cleaning house data3.png](https://github.com/alanisrperez/housing-cost-project/blob/main/Eddie/Images/cleaning%20house%20data3.png)
 
 
 Employment by Industry Data — Employment numbers per industry by county
@@ -35,17 +35,17 @@ Employment by Industry Data — Employment numbers per industry by county
 -- Takes summary of monthly employment, hours, & earnings from a sample of CA employers, then adjusts data seasonally, & lastly makes final revisions to statewide & local area data based on payroll tax reports.
 - For this dataset, we started by creating the categorizations of our industry main categories & subcategories, based on the formatting of indentations by row. Industry categorizations are based on the North American Industry Classification System (NAICS). We then selected the main categories to serve as our rows and included all subcategory data into the respective main category that it belongs to. This way, we can focus only on main categories. We created new files per county that show us this combined data. Using the combined data files, we created columns for each year from 2010 to 2024. Just like our other dataset that looked at median home value by county, this dataset was also set up to give an average number of people employed per month. So, we took an average for the year and created our new transformed data files. Lastly, we converted this data into a JSON. 
 
-![additional cleaning.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/additional%20cleaning.png)
-![additional cleaning2.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/additional%20cleaning2.png)
+![additional cleaning.png](https://github.com/alanisrperez/housing-cost-project/blob/main/Eddie/Images/additional%20cleaning.png)
+![additional cleaning2.png](https://github.com/alanisrperez/housing-cost-project/blob/main/Eddie/Images/additional%20cleaning2.png)
 
 
 Dashboard & Visualizations
 ---------------------
 To create an interactive page where users can sort through the data files & create visualizations based on selected counties, industries, and year. We started with an index html file that will create the structure and entry point for the JavaScript code to run on. Next, was to create the Java Script.
 
-![index html.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/index%20html.png)
-![index html2.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/index%20html2.png)
-![working script.js.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/working%20script.js.png)
+![index html.png](https://github.com/alanisrperez/housing-cost-project/blob/main/Eddie/Images/index%20html.png)
+![index html2.png](https://github.com/alanisrperez/housing-cost-project/blob/main/Eddie/Images/index%20html2.png)
+![working script.js.png](https://github.com/alanisrperez/housing-cost-project/blob/main/Eddie/Images/working%20script.js.png)
 
 We wanted the visualizations to include the following:
 - Map of California
@@ -59,7 +59,7 @@ We wanted the visualizations to include the following:
 - Line chart for median home value per county
 -- Based on selected county of 
 
-![Completed Dashboard.png](https://github.com/alanisrperez/housing-cost-project/blob/Eddie/Eddie/Images/Completed%20Dashboard.png)
+![Completed Dashboard.png](https://github.com/alanisrperez/housing-cost-project/blob/main/Eddie/Images/Completed%20Dashboard.png)
 
 
 Key Takeaways
